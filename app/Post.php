@@ -3,26 +3,31 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
 class Post extends Model
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'id', 'body'
-    ];
+    protected $fillable = ['body', "votes"];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-    ];
+    protected $hidden = [];
+
+    public function Comment()
+    {
+        return $this->hasMany("App\Comment");
+    }
+
+    public function User()
+    {
+        return $this->belongsTo("App\User");
+    }
+
 }

@@ -4,7 +4,6 @@ namespace App;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -17,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name', 'username', 'email', 'address', 'state', 'country', 'gender', 'phone', 'avatar'
     ];
 
     /**
@@ -26,6 +25,21 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
+
+    public function Post()
+    {
+        return $this->hasMany("App\Post");
+    }
+
+    public function Comment()
+    {
+        return $this->hasMany("App\Comment");
+    }
+    public function Doctor()
+    {
+        return $this->hasOne("App\Doctor");
+    }
+
 }

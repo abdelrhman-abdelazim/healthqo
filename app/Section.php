@@ -3,11 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
+
 class Section extends Model
 {
-    use Notifiable;
     protected $fillable = [
-       'title', 'image'
+        'title', 'img'
     ];
+
+
+    public function Doctor()
+    {
+        return $this->hasMany("App\Doctor");
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MakeMessageTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class MakeMessageTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('content');
-            $table->timestamps();
-        });
+        //future plans
+        // Schema::create('messages', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->text('content');
+        //     $table->timestamps();
+        // });
     }
 
     /**
