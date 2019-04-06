@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 
 
@@ -20,8 +20,8 @@ Route::get('user/auth', 'AuthController@login');
 
 // user
 Route::get('users/find/{q}', 'UserController@index');
-Route::group(['middleware' => 'auth:api'], function(){
-Route::get('user', 'UserController@show');
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('user', 'UserController@show');
 });
 Route::post('user', 'UserController@store');
 Route::put('user/{id}', 'UserController@update');
@@ -38,11 +38,12 @@ Route::delete('post/{id}', 'PostController@destroy');
 
 //messages
 Route::get('messages', 'MessageController@index');
-Route::group(['prefix'=>'message'],function(){
-Route::get('{id}', 'MessageController@show');
-Route::post('', 'MessageController@store');
-Route::put('{id}', 'MessageController@update');
-Route::delete('{id}', 'MessageController@destroy');});
+Route::group(['prefix' => 'message'], function () {
+    Route::get('{id}', 'MessageController@show');
+    Route::post('', 'MessageController@store');
+    Route::put('{id}', 'MessageController@update');
+    Route::delete('{id}', 'MessageController@destroy');
+});
 //comments
 Route::get('comments', 'CommentController@index');
 Route::get('comment/{id}', 'CommentController@show');
@@ -55,8 +56,9 @@ Route::get('sections', 'SectionController@index');
 // doctos
 Route::get("doctors/recommended", "DoctorController@recommended");
 Route::get('doctors/find/{q}', 'DoctorController@index');
-Route::group(['middleware' => 'auth:api'], function(){
-Route::get('doctor', 'DoctorController@show');});
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('doctor', 'DoctorController@show');
+});
 Route::post('doctor', 'DoctorController@store');
 Route::put('doctor/{id}', 'DoctorController@update');
 Route::delete('doctor/{id}', 'DoctorController@destroy');
